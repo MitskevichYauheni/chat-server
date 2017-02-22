@@ -34,6 +34,17 @@ app.post('/', function(req, res){
   })
 })
 
+app.delete('/', function(req, res){
+  Message.remove({}, function(err){
+    if(err){
+      console.log(err);
+    }
+    else {
+      console.log('messages delete!');
+      res.status(200).json({ result: true});
+    }
+  })
+})
 
 app.listen(3333, function() {
   console.log('Server is up!');
