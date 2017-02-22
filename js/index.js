@@ -12,6 +12,9 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
+app.get('/', function(req, res){
+  res.send('Hello server');
+})
 
 app.post('/add', function(req, res){
   Message.create({ author: req.body.author, message: req.body.message }, function(err, message) {
